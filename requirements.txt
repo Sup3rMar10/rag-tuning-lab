@@ -1,0 +1,6 @@
+# The index, metrics, fusion and tuning harness use only the standard library.
+# These are for dense re-ranking, memory measurement and the charts:
+numpy>=2.0
+psutil>=5.9
+matplotlib>=3.8
+sentence-transformers>=3.0   # pulls in torch and transformers

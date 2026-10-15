@@ -1,0 +1,14 @@
+{
+  "naive": {
+    "db_bytes": 20942848,
+    "rows_per_second": 103,
+    "seconds": 195.04
+  },
+  "optimized": {
+    "db_bytes": 25214976,
+    "rows_per_second": 30576,
+    "seconds": 0.65
+  },
+  "slice_passages": 20000,
+  "speedup": 300.1
+}

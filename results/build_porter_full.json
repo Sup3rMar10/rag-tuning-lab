@@ -1,0 +1,9 @@
+{
+  "db_bytes": 2484314112,
+  "detail": "full",
+  "mode": "optimized",
+  "rows": 2681468,
+  "rows_per_second": 20977,
+  "seconds": 127.8,
+  "tokenizer": "porter"
+}

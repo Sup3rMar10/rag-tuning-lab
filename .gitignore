@@ -1,0 +1,12 @@
+# Corpus, indexes and embeddings are large and reproducible: never commit them
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.zip
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/

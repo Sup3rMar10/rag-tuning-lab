@@ -1,0 +1,175 @@
+{
+  "bench_build": {
+    "naive": {
+      "db_bytes": 20942848,
+      "rows_per_second": 103,
+      "seconds": 195.04
+    },
+    "optimized": {
+      "db_bytes": 25214976,
+      "rows_per_second": 30576,
+      "seconds": 0.65
+    },
+    "slice_passages": 20000,
+    "speedup": 300.1
+  },
+  "build_porter_full": {
+    "db_bytes": 2484314112,
+    "detail": "full",
+    "mode": "optimized",
+    "rows": 2681468,
+    "rows_per_second": 20977,
+    "seconds": 127.8,
+    "tokenizer": "porter"
+  },
+  "corpus": {
+    "held_out_half": 1726,
+    "held_out_questions_used": 500,
+    "judged_questions": 3452,
+    "passages": 2681468,
+    "tune_half": 1726,
+    "tuning_questions_used": 300
+  },
+  "environment": {
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "machine": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.13"
+  },
+  "final": {
+    "baseline (naive BM25)": {
+      "ci_ndcg@10": [
+        0.23864991883314296,
+        0.2996532543901946
+      ],
+      "config": {
+        "alpha": 0.5,
+        "candidates": 100,
+        "final_k": 100,
+        "max_terms": null,
+        "rerank": "none",
+        "rerank_depth": 100,
+        "rrf_k": 60,
+        "stopwords": false,
+        "w_text": 1.0,
+        "w_title": 1.0
+      },
+      "latency": {
+        "mean_ms": 4569.3860349999795,
+        "n": 40,
+        "p50_ms": 4213.417500000105,
+        "p95_ms": 7986.376400000154
+      },
+      "mrr@10": 0.23306666666666667,
+      "ndcg@10": 0.2693928782192431,
+      "recall@10": 0.4235,
+      "recall@100": 0.743
+    },
+    "n_questions": 500,
+    "tuned BM25": {
+      "ci_ndcg@10": [
+        0.2391406981970132,
+        0.2992287174645244
+      ],
+      "config": {
+        "alpha": 0.5,
+        "candidates": 100,
+        "final_k": 100,
+        "max_terms": 8,
+        "rerank": "none",
+        "rerank_depth": 100,
+        "rrf_k": 60,
+        "stopwords": false,
+        "w_text": 1.0,
+        "w_title": 2.0
+      },
+      "latency": {
+        "mean_ms": 2272.977299999957,
+        "n": 40,
+        "p50_ms": 2561.2897999999404,
+        "p95_ms": 3560.9176999996635
+      },
+      "mrr@10": 0.22747936507936506,
+      "ndcg@10": 0.2697158226721635,
+      "recall@10": 0.4398333333333333,
+      "recall@100": 0.7663333333333334,
+      "vs_baseline_ndcg@10": {
+        "ci": [
+          -0.011657394596471988,
+          0.011231906464363336
+        ],
+        "diff": 0.0003229444529203246,
+        "p_better": 0.5275
+      }
+    },
+    "tuned BM25 + dense re-rank": {
+      "ci_ndcg@10": [
+        0.35073731735744934,
+        0.4163116472028827
+      ],
+      "config": {
+        "alpha": 0.3,
+        "candidates": 100,
+        "final_k": 100,
+        "max_terms": 8,
+        "rerank": "weighted",
+        "rerank_depth": 100,
+        "rrf_k": 60,
+        "stopwords": false,
+        "w_text": 1.0,
+        "w_title": 2.0
+      },
+      "latency": {
+        "mean_ms": 3300.193502499951,
+        "n": 40,
+        "p50_ms": 3671.19189999994,
+        "p95_ms": 4788.695299999745
+      },
+      "mrr@10": 0.3302809523809524,
+      "ndcg@10": 0.3835829404248507,
+      "recall@10": 0.587,
+      "recall@100": 0.7663333333333334,
+      "vs_baseline_ndcg@10": {
+        "ci": [
+          0.09117639435387793,
+          0.1368879313302582
+        ],
+        "diff": 0.11419006220560753,
+        "p_better": 1.0
+      }
+    }
+  },
+  "index_bytes": 2484314112,
+  "peak_memory_mb": 858,
+  "stage1": {
+    "best": {
+      "alpha": 0.5,
+      "candidates": 100,
+      "final_k": 100,
+      "max_terms": 8,
+      "rerank": "none",
+      "rerank_depth": 100,
+      "rrf_k": 60,
+      "stopwords": false,
+      "w_text": 1.0,
+      "w_title": 2.0
+    },
+    "n_questions": 300
+  },
+  "stage2": {
+    "best": {
+      "alpha": 0.3,
+      "candidates": 100,
+      "final_k": 100,
+      "max_terms": 8,
+      "rerank": "weighted",
+      "rerank_depth": 100,
+      "rrf_k": 60,
+      "stopwords": false,
+      "w_text": 1.0,
+      "w_title": 2.0
+    },
+    "n_questions": 300,
+    "seq_length": 64
+  }
+}
